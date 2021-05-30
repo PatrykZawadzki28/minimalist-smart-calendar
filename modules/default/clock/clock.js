@@ -26,8 +26,8 @@ Module.register("clock", {
 		analogPlacement: "bottom", // options: 'top', 'bottom', 'left', 'right'
 		analogShowDate: "top", // options: false, 'top', or 'bottom'
 		secondsColor: "#888888",
-		timezone: null,
 
+		timezone: null,
 		showSunTimes: false,
 		showMoonTimes: false,
 		lat: 47.630539,
@@ -103,7 +103,7 @@ Module.register("clock", {
 		var moonWrapper = document.createElement("div");
 		var weekWrapper = document.createElement("div");
 		// Style Wrappers
-		dateWrapper.className = "date normal medium";
+		dateWrapper.className = "date small normal";
 		timeWrapper.className = "time bright large light";
 		secondsWrapper.className = "dimmed";
 		sunWrapper.className = "sun dimmed small";
@@ -136,7 +136,9 @@ Module.register("clock", {
 			dateWrapper.innerHTML = now.format(this.config.dateFormat);
 		}
 		if (this.config.showWeek) {
-			weekWrapper.innerHTML = this.translate("WEEK", { weekNumber: now.week() });
+			weekWrapper.innerHTML = this.translate("WEEK", {
+				weekNumber: now.week()
+			});
 		}
 		timeWrapper.innerHTML = timeString;
 		secondsWrapper.innerHTML = now.format("ss");

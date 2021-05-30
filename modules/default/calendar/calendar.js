@@ -23,7 +23,7 @@ Module.register("calendar", {
 		wrapLocationEvents: false,
 		maxTitleLines: 3,
 		maxEventTitleLines: 3,
-		fetchInterval: 5 * 60 * 1000, // Update every 5 minutes.
+		fetchInterval: 3 * 60 * 1000, // Update every 3 minutes.
 		animationSpeed: 2000,
 		fade: true,
 		urgency: 7,
@@ -442,13 +442,25 @@ Module.register("calendar", {
 	getLocaleSpecification: function (timeFormat) {
 		switch (timeFormat) {
 			case 12: {
-				return { longDateFormat: { LT: "h:mm A" } };
+				return {
+					longDateFormat: {
+						LT: "h:mm A"
+					}
+				};
 			}
 			case 24: {
-				return { longDateFormat: { LT: "HH:mm" } };
+				return {
+					longDateFormat: {
+						LT: "HH:mm"
+					}
+				};
 			}
 			default: {
-				return { longDateFormat: { LT: moment.localeData().longDateFormat("LT") } };
+				return {
+					longDateFormat: {
+						LT: moment.localeData().longDateFormat("LT")
+					}
+				};
 			}
 		}
 	},
